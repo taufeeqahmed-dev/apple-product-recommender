@@ -12,6 +12,7 @@ sources/
 .vscode/
 .idea/
 .DS_Store
+desktop.ini
 Thumbs.db
 
 # Dependencies, generated output, and logs
