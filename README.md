@@ -2,27 +2,34 @@
 
 Northstar is an unofficial student portfolio project that aims to help people choose a MacBook based on their needs. It will use a short, plain-language questionnaire and an explainable scoring system to produce a focused recommendation.
 
-The project is intentionally being developed in small stages. Stage 1 establishes an accessible, responsive interface before any product data or recommendation logic is introduced.
+The project is intentionally being developed in small stages. Stages 1 and 2 now provide an accessible, responsive foundation and a complete questionnaire flow before any product data or recommendation logic is introduced.
 
 > **Disclaimer:** Northstar is an independent educational project. It is not affiliated with, endorsed by or sponsored by Apple Inc. Apple and MacBook are trademarks of Apple Inc.
 
 ## Current status
 
-Stage 1 includes:
+Stage 2 includes:
 
 - an accessible landing page;
 - a responsive primary navigation bar;
 - an introduction and clear call-to-action;
 - visible project and affiliation disclaimers;
-- placeholder questionnaire and results sections;
+- an eight-step, MacBook-only questionnaire using native form controls;
+- required-answer validation with accessible error announcements;
+- Back, Continue and Restart questionnaire behavior;
+- preserved answers when moving backwards and forwards;
+- visible step text and a native progress element;
+- controlled questionnaire state in a dedicated JavaScript module;
+- a questionnaire-complete message without product results;
+- a placeholder recommendation-results section;
 - an empty JavaScript product data module; and
 - an original responsive visual identity.
 
-No real product prices, specifications, questionnaire controls or recommendation logic are included at this stage.
+No product records, real product prices, model specifications, scoring rules, recommendation logic or actual recommendation results are included at this stage.
 
 ## Planned features
 
-- A short MacBook-only questionnaire focused on everyday needs and priorities.
+- A short MacBook-only questionnaire focused on everyday needs and priorities. **Complete in Stage 2.**
 - A small product dataset that is straightforward to inspect and test.
 - An explainable, deterministic recommendation score.
 - A focused set of results with reasons and trade-offs.
@@ -51,8 +58,10 @@ No external frameworks, component libraries or runtime dependencies are used.
 │   └── styles.css      # Visual design and responsive behaviour
 ├── js/
 │   ├── app.js          # Application entry point
-│   ├── products.js     # Product data module (empty in Stage 1)
-│   └── ui.js           # Navigation and future interface behaviour
+│   ├── products.js              # Product data module (still empty)
+│   ├── questionnaire-state.js   # Encapsulated questionnaire state
+│   ├── questionnaire.js         # Questionnaire validation and interface behavior
+│   └── ui.js                    # Responsive navigation behavior
 └── sources/            # Read-only project reference material
 ```
 
@@ -62,9 +71,9 @@ No external frameworks, component libraries or runtime dependencies are used.
 
 Create the project structure, landing page, responsive navigation, original visual system, visible disclaimer and empty questionnaire/results sections.
 
-### Stage 2 — Questionnaire
+### Stage 2 — Questionnaire (complete)
 
-Design and implement the accessible multi-step MacBook questionnaire, including input validation, progress feedback and keyboard behaviour.
+Implemented the accessible multi-step MacBook questionnaire with native controls, validation announcements, progress feedback, controlled state, answer preservation, restart confirmation and deliberate focus movement.
 
 ### Stage 3 — Data and recommendations
 
@@ -82,4 +91,10 @@ Document the algorithm and design decisions, add project screenshots, complete f
 
 Because the site uses JavaScript modules, serve the project with a local development server rather than opening `index.html` directly. No installation or build step is required.
 
-Development of the questionnaire will begin only after Stage 1 has been reviewed and approved.
+```text
+python -m http.server 4173 --bind 127.0.0.1
+```
+
+Then open `http://127.0.0.1:4173/`. On Windows, `py` can be used instead of `python` when that is the configured launcher. Stop the server with `Ctrl+C`.
+
+Product data and recommendation development will begin only after Stage 3 is explicitly approved.
